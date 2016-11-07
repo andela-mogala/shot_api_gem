@@ -2,7 +2,7 @@
 
 # ShotApiGem
 
-Shot api gem was built out of a desire to make interactions with the [turbo-url](turbo-url.herokuapp.com) api a hassle free process. It does the job of communicating with the api and returns ruby objects that you can use directly in your code.
+Shot api gem was built out of a desire to make interactions with the [turbo-url](http://turbo-url.herokuapp.com) api a hassle free process. It does the job of communicating with the api and returns ruby objects that you can use directly in your code.
 
 ## Installation
 
@@ -25,7 +25,7 @@ This gem is intended for use directly with your ruby code. The entry point to al
 This class accepts an api key when creating an instance.
 
 ### Getting an API key.
-* Create an account on [turbo-url](turbo-url.herokuapp.com) if you don't already have one
+* Create an account on [turbo-url](http://turbo-url.herokuapp.com) if you don't already have one
 * Visit your dashboard and find the `Generate API Key` button.
 * Clicking on this button generates an api key.
 * You can now copy this key and use it with the gem
