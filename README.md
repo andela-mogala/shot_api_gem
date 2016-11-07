@@ -1,8 +1,8 @@
+[![Code Climate](https://codeclimate.com/github/andela-mogala/shot_api_gem/badges/gpa.svg)](https://codeclimate.com/github/andela-mogala/shot_api_gem)  [![Build Status](https://travis-ci.org/andela-mogala/shot_api_gem.svg?branch=master)](https://travis-ci.org/andela-mogala/shot_api_gem)
+
 # ShotApiGem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/shot_api_gem`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Shot api gem was built out of a desire to make interactions with the [turbo-url](turbo-url.herokuapp.com) api a hassle free process. It does the job of communicating with the api and returns ruby objects that you can use directly in your code.
 
 ## Installation
 
@@ -21,8 +21,58 @@ Or install it yourself as:
     $ gem install shot_api_gem
 
 ## Usage
+This gem is intended for use directly with your ruby code. The entry point to all interactions with the turbo-url api is from the ShotApiGem::Consumer class.
+This class accepts an api key when creating an instance.
 
-TODO: Write usage instructions here
+### Getting an API key.
+* Create an account on [turbo-url](turbo-url.herokuapp.com) if you don't already have one
+* Visit your dashboard and find the `Generate API Key` button.
+* Clicking on this button generates an api key.
+* You can now copy this key and use it with the gem
+
+### Making requests
+Start by creating an instance of Consumer class
+
+```ruby
+resource = ShotApiGem::Consumer.new(api_key)
+```
+
+You can now call methods like
+
+```ruby
+resource.fetch_all
+```
+This returns an array of links that you have created with your account.
+
+```ruby
+resource.fetch(1)
+```
+Returns the link with `{ id: 1 }`
+
+```ruby
+resource.create({ url: 'somelink.com', slug: 'slk' })
+```
+creates a new link and returns the created link as an object
+
+```ruby
+resource.update(1, { url: 'anotherlink.com', slug: 'anlk' })
+```
+updates the link with `{ id: 1 }` and returns the updated link as an object
+
+```ruby
+resource.delete(1)
+```
+deletes the link with `{ id: 1 }` but doesn't return any content
+
+A typical Link object has the following properties:
+* id
+* url
+* slug
+* active
+* clicks
+* title
+* date_created
+* date_updated
 
 ## Development
 
@@ -32,7 +82,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/shot_api_gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/andela-mogala/shot_api_gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
