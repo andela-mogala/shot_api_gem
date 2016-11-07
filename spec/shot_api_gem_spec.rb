@@ -7,7 +7,7 @@ describe ShotApiGem do
 
   #tests require internet connection
   describe ShotApiGem::Consumer do
-    let(:token) { 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.RoDeBk-KptdlZKD4oeJS2IvpY8nqvwGebsKvPKPESG4' }
+    let(:token) { 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.6Zw1v9APD2mmr2eXeOi3oiI7SoC-WJg4A2WnoFDZL9k' }
     let(:consumer) { ShotApiGem::Consumer.new(token) }
     let(:cons) { consumer.create({url: Faker::Internet.url, slug: Faker::Internet.slug }) }
 

@@ -12,20 +12,20 @@ module ShotApiGem
     end
 
     def fetch_all
-      response = RestClient.get(local_base_url, header)
+      response = RestClient.get(base_url, header)
       json_response(response.body)[:links].map do |link|
         Link.new(link)
       end
     end
 
     def fetch(id)
-      response = RestClient.get(local_base_url << "/#{id}", header)
+      response = RestClient.get(base_url << "/#{id}", header)
       Link.new(json_response(response.body))
     end
 
     def create(options)
       response = RestClient.post(
-                   local_base_url,
+                   base_url,
                    { given_url: options[:url], slug: options[:slug] },
                    header
                  )
@@ -34,7 +34,7 @@ module ShotApiGem
 
     def update(id, options)
       response = RestClient.patch(
-          local_base_url << "/#{id}",
+          base_url << "/#{id}",
           { given_url: options[:url], slug: options[:slug], active: options[:active] },
           header
         )
@@ -42,7 +42,7 @@ module ShotApiGem
     end
 
     def delete(id)
-      response = RestClient.delete(local_base_url << "/#{id}", header)
+      response = RestClient.delete(base_url << "/#{id}", header)
       response.code
     end
 
