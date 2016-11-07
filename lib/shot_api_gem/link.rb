@@ -2,7 +2,7 @@ module ShotApiGem
     class Link
       attr_reader(
         :id,
-        :given_url,
+        :url,
         :slug,
         :active,
         :clicks,

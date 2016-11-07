@@ -26,10 +26,7 @@ module ShotApiGem
     def create(options)
       response = RestClient.post(
                    base_url,
-                   {
-                     url: options[:url],
-                     slug: options[:slug]
-                   },
+                   { url: options[:url], slug: options[:slug] },
                    header
                  )
       Link.new(json_response(response.body))
@@ -38,11 +35,7 @@ module ShotApiGem
     def update(id, options)
       response = RestClent.patch(
           base_url << "/#{id}",
-          {
-            url: options[:url],
-            slug: options[:slug],
-            active: option[:active]
-          },
+          { url: options[:url], slug: options[:slug], active: option[:active] },
           header
         )
       Link.new(json_response(response.body))
