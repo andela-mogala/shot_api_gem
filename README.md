@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/andela-mogala/shot_api_gem/badges/gpa.svg)](https://codeclimate.com/github/andela-mogala/shot_api_gem)  [![Build Status](https://travis-ci.org/andela-mogala/shot_api_gem.svg?branch=master)](https://travis-ci.org/andela-mogala/shot_api_gem)
+
 # ShotApiGem
 
 Shot api gem was built out of a desire to make interactions with the [turbo-url](turbo-url.herokuapp.com) api a hassle free process. It does the job of communicating with the api and returns ruby objects that you can use directly in your code.
