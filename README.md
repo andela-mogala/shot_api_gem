@@ -51,15 +51,18 @@ Returns the link with `{ id: 1 }`
 
 ```ruby
 resource.create({ url: 'somelink.com', slug: 'slk' })
-``` creates a new link and returns the created link as an object
+```
+creates a new link and returns the created link as an object
 
 ```ruby
 resource.update(1, { url: 'anotherlink.com', slug: 'anlk' })
-```updates the link with `{ id: 1 }` and returns the updated link as an object
+```
+updates the link with `{ id: 1 }` and returns the updated link as an object
 
 ```ruby
 resource.delete(1)
-```deletes the link with `{ id: 1 }` but doesn't return any content
+```
+deletes the link with `{ id: 1 }` but doesn't return any content
 
 A typical Link object has the following properties:
 * id
