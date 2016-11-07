@@ -5,7 +5,22 @@ describe ShotApiGem do
     expect(ShotApiGem::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  describe Consumer do
+    decribe 'instance methods' do
+      describe '#fetch_all' do
+      end
+    end
+
+    describe '#fetch' do
+    end
+
+    describe '#create' do
+    end
+
+    describe '#update' do
+    end
+
+    describe '#delete' do
+    end
   end
 end
