@@ -7,12 +7,15 @@ describe ShotApiGem do
 
   #tests require internet connection
   describe ShotApiGem::Consumer do
-    let(:token) { 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.6Zw1v9APD2mmr2eXeOi3oiI7SoC-WJg4A2WnoFDZL9k' }
+    let(:token) { 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.RoDeBk-KptdlZKD4oeJS2IvpY8nqvwGebsKvPKPESG4' }
     let(:consumer) { ShotApiGem::Consumer.new(token) }
+    let(:cons) { consumer.create({url: Faker::Internet.url, slug: Faker::Internet.slug }) }
 
     describe 'instance methods' do
+
       describe '#fetch_all' do
-        response = consumer.fetch_all
+        let(:response) { consumer.fetch_all }
+
         it 'returns an array of links' do
           expect(response).to be_an_instance_of Array
           expect(response.first).to be_an_instance_of ShotApiGem::Link
@@ -20,16 +23,17 @@ describe ShotApiGem do
       end
 
       describe '#fetch' do
-        response = consumer.fetch(1)
+        let(:response) { consumer.fetch(cons.id) }
+
         it 'should return a link' do
-          expect(response).to_not be_nil
           expect(response).to be_an_instance_of ShotApiGem::Link
         end
       end
 
       describe '#create' do
-        let(:data) { { url: 'google.com', slug: 'go' } }
-        response = consumer.create(data)
+        let!(:data) { { url: Faker::Internet.url, slug: Faker::Internet.slug } }
+        let(:response) { consumer.create(data) }
+
         it 'creates a link and returns the same link' do
           expect(response.url).to eq data[:url]
           expect(response.slug).to eq data[:slug]
@@ -37,8 +41,9 @@ describe ShotApiGem do
       end
 
       describe '#update' do
-        let(:data) { { url: 'microsoft.com', slug: 'ms' } }
-        response = consumer.update(1, data)
+        let(:data) { { url: Faker::Internet.url, slug: Faker::Internet.slug } }
+        let(:response) { consumer.update(cons.id, data) }
+
         it 'updates the link and returns the updated link' do
           expect(response.url).to eq data[:url]
           expect(response.slug).to eq data[:slug]
@@ -46,7 +51,7 @@ describe ShotApiGem do
       end
 
       describe '#delete' do
-        response = consumer.delete(1)
+        let(:response) { consumer.delete(cons.id) }
         it 'deletes and returns no content' do
           expect(response).to eq 204
         end

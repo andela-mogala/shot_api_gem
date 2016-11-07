@@ -13,7 +13,7 @@ module ShotApiGem
 
       def initialize(params)
         @id = params[:id]
-        @given_url = params[:url]
+        @url = params[:url]
         @slug = params[:slug]
         @active = params[:active]
         @clicks = params[:clicks]
