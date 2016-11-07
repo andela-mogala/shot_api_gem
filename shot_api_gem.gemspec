@@ -33,5 +33,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "shoulda-matchers"
   spec.add_development_dependency "faker"
   spec.add_development_dependency "codeclimate-test-reporter", "~> 1.0.0"
+  spec.add_development_dependency "simplecov"
   spec.add_dependency 'rest-client', '~> 2.0'
 end
